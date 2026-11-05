@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+bin/
+.env
+.env.*
+!.env.example
+secrets/
+private/
+data/
+staging/
+*.db
+*.db-*
+*.log
+*.tar
+*.tar.gz
+.DS_Store
