@@ -11,8 +11,8 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY --from=provider /music-provider /usr/local/bin/music-provider
-COPY provider/ /usr/share/music-gateway/provider-source/
-COPY LICENSE THIRD-PARTY.md /usr/share/music-gateway/
+COPY provider/ /usr/share/navidrome-music-search-gateway/provider-source/
+COPY LICENSE THIRD-PARTY.md /usr/share/navidrome-music-search-gateway/
 COPY gateway.py publication.py quality.py ./
 ENV PYTHONUNBUFFERED=1
 USER 1000:1000

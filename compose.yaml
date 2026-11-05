@@ -1,8 +1,8 @@
-name: music-gateway
+name: navidrome-music-search-gateway
 services:
   gateway:
     build: .
-    image: music-gateway:local
+    image: navidrome-music-search-gateway:local
     user: "${PUID:-1000}:${PGID:-1000}"
     ports:
       - "${BIND_ADDRESS:-127.0.0.1}:${GATEWAY_PORT:-4534}:4534"

@@ -1,4 +1,4 @@
-# Music Gateway
+# Navidrome Music Search Gateway
 
 为 Navidrome 提供在线搜索及“收藏后下载入库”的 Subsonic/OpenSubsonic 网关。原 Navidrome 服务保持独立，普通接口代理到原服务；网关处理在线候选、音质选择、校验、入库和真实收藏。项目以源码和 Docker Compose 方式交付，不提供预构建镜像。
 

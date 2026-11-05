@@ -1,4 +1,4 @@
-module music-gateway/provider
+module navidrome-music-search-gateway/provider
 
 go 1.25.1
 

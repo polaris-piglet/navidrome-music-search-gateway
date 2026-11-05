@@ -25,7 +25,7 @@ class Failure(Exception):
     def __init__(self, message, code=0): self.message, self.code = message, code
 
 def envelope(**kw):
-    return {'subsonic-response': {'status':'ok','version':'1.16.1','type':'music-gateway','serverVersion':'0.1.5',**kw}}
+    return {'subsonic-response': {'status':'ok','version':'1.16.1','type':'navidrome-music-search-gateway','serverVersion':'0.1.5',**kw}}
 
 def encode(payload, fmt):
     if fmt == 'json': return web.json_response(payload)
