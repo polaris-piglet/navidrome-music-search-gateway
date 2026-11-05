@@ -1,6 +1,20 @@
 # Navidrome Music Search Gateway
 
-为 Navidrome 提供在线搜索及“收藏后下载入库”的 Subsonic/OpenSubsonic 网关。原 Navidrome 服务保持独立，普通接口代理到原服务；网关处理在线候选、音质选择、校验、入库和真实收藏。项目以源码和 Docker Compose 方式交付，不提供预构建镜像。
+为 Navidrome 提供在线搜索及“收藏后下载入库”的 Subsonic/OpenSubsonic 网关。原 Navidrome 服务保持独立，支持范围内的 Subsonic/OpenSubsonic 接口代理到原服务；网关处理在线候选、音质选择、校验、入库和真实收藏。项目以源码和 Docker Compose 方式交付，不提供预构建镜像。
+
+## 客户端连接：请选 OpenSubsonic/Subsonic
+
+**Feishin 连接网关时不要选择 Navidrome 类型。** 当前网关不是 Navidrome 全部 API 的透明替身，也不是其网页管理入口。
+
+| 连接目标 | Feishin 服务器类型 | 当前状态 |
+| --- | --- | --- |
+| 本网关 | OpenSubsonic / Subsonic（按客户端显示名称） | 当前支持路径，使用原 Navidrome 账号 |
+| 本网关 | Navidrome | 暂不支持，专用登录接口可能返回 404，客户端显示 Failed to authenticate |
+| 原 Navidrome | Navidrome | 保留原连接；网关不会修改它 |
+
+这不是协议升级导致旧协议失效，而是两种连接模式使用不同接口。仅将原连接地址改成网关地址、保留 Navidrome 类型不能完成切换；类型不可编辑时新增 OpenSubsonic 连接。原服务地址不变，也无需因此重置密码。
+
+若选对类型仍登录失败，再核对网关可达性、凭据、客户端请求与 CORS；不要将所有认证错误都归因于类型选择。原生 API 兼容仍处于[下一步评估计划](docs/roadmap.md)，尚未实现。
 
 ## 功能与限制
 
@@ -70,6 +84,7 @@ bash provider/build.sh "$PWD/bin/music-provider"
 
 - [协议、事务与音质行为](docs/behavior.md)
 - [验收范围](docs/testing.md)
+- [下一步：Navidrome 原生 API 兼容评估](docs/roadmap.md)
 - [贡献指南](CONTRIBUTING.md)
 - [安全与隐私边界](SECURITY.md)
 - [依赖说明](THIRD-PARTY.md)
